@@ -1,4 +1,4 @@
-<h2>Simple mini-project with Laravel 5.5, showing how to send email using ajax (jquery) with [form validation](https://jqueryvalidation.org/).</h2>
+<h3>Simple mini-project with Laravel 5.5, showing how to send email using ajax (jquery) with <a href="https://jqueryvalidation.org/">form validation</a>.</h3>
 
 ![Screenshot](https://raw.githubusercontent.com/yakuter/laravel-ajax-contact-form/master/laravel-ajax-contact-form.png)
 
