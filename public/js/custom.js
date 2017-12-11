@@ -2,23 +2,6 @@
 
 	'use strict';
 
-
-	$.validator.addMethod("noSpace", function(value, element) {
-    	return value.search(/[a-z0-9]/i) == 0;
-	}, 'Please fill this required field.');
-
-	/*
-	Assign Custom Rules on Fields
-	*/
-	$.validator.addClassRules({
-	    'form-control': {
-	        noSpace: true
-	    }
-	});
-
-	/*
-	Contact Form: Basic
-	*/
 	$('#contactForm').validate({
 		submitHandler: function(form) {
 
@@ -31,7 +14,6 @@
 
 			$submitButton.val( $submitButton.data('loading-text') ? $submitButton.data('loading-text') : 'Loading...' ).attr('disabled', true);
 
-			// Ajax Submit
 			$.ajax({
 				type: 'POST',
 				url: $form.attr('action'),
@@ -50,21 +32,7 @@
 					$messageSuccess.removeClass('hide-box');
 					$messageError.addClass('hide-box');
 
-					// Reset Form
-					$form.find('.form-control')
-						.val('')
-						.blur()
-						.parent()
-						.removeClass('has-success')
-						.removeClass('has-danger')
-						.find('label.error')
-						.remove();
-
-					if (($messageSuccess.offset().top - 80) < $(window).scrollTop()) {
-						$('html, body').animate({
-							scrollTop: $messageSuccess.offset().top - 80
-						}, 300);
-					}
+					$form.find('.form-control').val('').blur().parent().removeClass('has-success').removeClass('has-danger').find('label.error').remove();
 
 					$form.find('.form-control').removeClass('error');
 
@@ -72,23 +40,14 @@
 					
 					return;
 
-				} else if (data.response == 'error' && typeof data.errorMessage !== 'undefined') {
-					$errorMessage.html(data.errorMessage).show();
 				} else {
-					$errorMessage.html(data.responseText).show();
+					$errorMessage.html(data.errorMessage).show();
 				}
 
 				$messageError.removeClass('hide-box');
 				$messageSuccess.addClass('hide-box');
 
-				if (($messageError.offset().top - 80) < $(window).scrollTop()) {
-					$('html, body').animate({
-						scrollTop: $messageError.offset().top - 80
-					}, 300);
-				}
-
-				$form.find('.has-success')
-					.removeClass('has-success');
+				$form.find('.has-success').removeClass('has-success');
 					
 				$submitButton.val( submitButtonText ).attr('disabled', false);
 

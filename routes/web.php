@@ -12,4 +12,5 @@
 */
 
 Route::get('/', function () {return view('ajax-form');});
+
 Route::post('/send', 'AjaxController@send');

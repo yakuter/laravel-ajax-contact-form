@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Laravel Ajax Contact Form</title>
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -14,71 +14,8 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <!-- Styles -->
-        <style>
-            /* Forms */
-            form label {
-                font-weight: normal;
-            }
-
-            textarea {
-                resize: vertical;
-            }
-
-            select {
-                border: 1px solid #E5E7E9;
-                border-radius: 6px;
-                outline: none;
-            }
-
-            .label {
-                font-weight: normal;
-            }
-
-            .form-group:after {
-                content: ".";
-                display: block;
-                clear: both;
-                visibility: hidden;
-                line-height: 0;
-                height: 0;
-            }
-
-            .form-control:focus {
-                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-                border-color: #CCC;
-            }
-
-            .form-control.error {
-                border-color: #a94442;
-                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-            }
-
-            .form-control.error:focus {
-                border-color: #843534;
-                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
-                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
-            }
-
-            /* Forms Validations */
-            label.valid {
-                display: inline-block;
-                text-indent: -9999px;
-            }
-
-            label.error {
-                color: #c10000;
-                font-size: 0.9em;
-                line-height: 18px;
-                padding: 5px 0 0;
-            }
-
-            .hide-box {
-                display: none!important;
-            }
-           
-        </style>
+        <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+        
     </head>
     <body>
 
@@ -109,8 +46,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="">Simple Table</a></li>
-                        <li><a href="">Simple Table</a></li>
+                        <li><a href="https://www.yakuter.com" target="_blank">Yakuter</a></li>
                         
                     </ul>
                 </div>
@@ -151,10 +87,10 @@
 
                                 <div class="form-group">
                                     <label>Message *</label>
-                                    <textarea maxlength="5000" data-msg-required="Please enter your message" rows="8" class="form-control" name="message" id="message" required></textarea>                       
+                                    <textarea maxlength="5000" data-msg-required="Please enter your message" rows="8" class="form-control" name="message" id="message" placeholder="Message" required></textarea>                       
                                 </div>
 
-                                <input type="submit" value="Send Message" class="btn btn-primary btn-lg" data-loading-text="Sending...">
+                                <input type="submit" value="Send Message" class="btn btn-primary" data-loading-text="Sending...">
                             </form>
 
                         </div>
@@ -168,7 +104,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="{{ asset('js/jquery.validation.min.js') }}"></script>
-    <script src="{{ asset('js/ajax-form.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
 
     </body>
 </html>

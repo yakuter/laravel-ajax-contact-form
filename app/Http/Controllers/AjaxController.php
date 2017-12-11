@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Mail;
 
-
 class AjaxController extends Controller
 {
 
@@ -26,7 +25,6 @@ class AjaxController extends Controller
             $to_name  = "Erhan Yakut";
             $subject  = "Laravel Ajax Form Message";
 
-            /* Send Mail ******* */
             $message->subject ($subject);
             $message->from ($request->email, $request->name);
             $message->to ($to_email, $to_name);
@@ -34,16 +32,11 @@ class AjaxController extends Controller
 
         if(count(Mail::failures()) > 0){
             $status = 'error';
-            return response()->json(['response' => $status, 'responseText' => '']);
         } else {
             $status = 'success';
-            return response()->json(['response' => $status]);
         }
 
-
-        
-        
-        //return response()->json(['response' => $status]);
+        return response()->json(['response' => $status]);
     }
 
 }
